@@ -66,7 +66,7 @@
                 {!! nl2br(e($tip->content)) !!}
             </div>
 
-            <a href="{{ route('home') }}"
+            <a href="/"
                class="group mt-10 inline-flex items-center gap-2 text-[#00ADB5] hover:text-white transition-all duration-300">
                 <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />

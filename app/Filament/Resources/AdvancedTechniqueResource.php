@@ -26,10 +26,10 @@ class AdvancedTechniqueResource extends Resource
                 ->label('عنوان التقنية')
                 ->required(),
 
-            Forms\Components\Textarea::make('content')
+            Forms\Components\RichEditor::make('content')
                 ->label('المحتوى')
                 ->required()
-                ->rows(5),
+                ->columnSpanFull(),
 
             Forms\Components\Select::make('level')
                 ->label('المستوى')

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/filament/filament/app.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body class="bg-[#222831] text-[#E0E0E0] font-['Almarai']">
@@ -140,17 +141,40 @@
         </div>
     </div>
 
-    <!-- Start Your Journey Section -->
-    <section class="py-20 px-6" data-aos="fade-right" data-aos-duration="800">
-        <div class="max-w-4xl mx-auto text-center">
+    <section x-data="{ filter: 'all' }" class="py-20 px-6 bg-[#222831]">
+        <div class="max-w-6xl mx-auto text-center">
             <h2 class="text-4xl font-extrabold text-[#E0E0E0] mb-6">🚀 ابدأ رحلتك مع البرمجة</h2>
-            <p class="text-[#E0E0E0]/80 text-lg mb-10 leading-relaxed">إذا كنت مبتدئ، فهذه هي بوابتك الأولى. مسارات
-                وأدوات مختارة تساعدك على الانطلاق بشكل صحيح واحترافي.</p>
-            <a href="#"
-                class="px-8 py-3 text-lg bg-[#00ADB5] text-[#E0E0E0] font-semibold rounded-full shadow-lg hover:bg-[#E0E0E0] hover:text-[#00ADB5] border-2 border-[#00ADB5] transition-all duration-300 inline-block focus:ring-2 focus:ring-[#00ADB5]"
-                data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600">تصفح الموارد للمبتدئين</a>
+            <p class="text-[#E0E0E0]/80 text-lg mb-10">اختر المجال المناسب لك لتبدأ الطريق.</p>
+
+            <!-- أزرار الفلترة -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button @click="filter = 'all'" :class="{ 'bg-[#00ADB5] text-white': filter === 'all' }"
+                    class="px-4 py-2 border border-[#00ADB5] rounded-full text-[#E0E0E0] hover:bg-[#00ADB5] hover:text-white transition">الكل</button>
+                <template x-for="cat in [...new Set(tracks.map(t => t.category))]">
+                    <button @click="filter = cat" :class="{ 'bg-[#00ADB5] text-white': filter === cat }"
+                        class="px-4 py-2 border border-[#00ADB5] rounded-full text-[#E0E0E0] hover:bg-[#00ADB5] hover:text-white transition"
+                        x-text="cat">
+                    </button>
+                </template>
+            </div>
+
+            <!-- بطاقات المسارات -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" x-init="tracks = {{ Js::from($tracks) }}">
+                <template x-for="track in tracks.filter(t => filter === 'all' || t.category === filter)"
+                    :key="track.id">
+                    <div
+                        class="bg-[#393E46] p-6 rounded-2xl shadow-lg border border-[#00ADB5]/30 hover:shadow-2xl transition">
+                        <div class="text-4xl mb-4" x-text="track.icon"></div>
+                        <h3 class="text-xl font-bold text-[#E0E0E0] mb-2" x-text="track.title"></h3>
+                        <p class="text-[#E0E0E0]/80 text-sm mb-4" x-text="track.description"></p>
+                        <a :href="`/tracks/${track.id}`" class="text-[#00ADB5] hover:underline">استكشاف المسار →</a>
+                    </div>
+                </template>
+            </div>
         </div>
     </section>
+
+
 
     <!-- HR -->
     <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">

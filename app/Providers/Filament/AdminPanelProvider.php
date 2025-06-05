@@ -39,6 +39,8 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                \App\Filament\Widgets\StatsOverview::class,
+                \App\Filament\Widgets\TracksChart::class, // 👈 أضف هذا
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -53,6 +55,11 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ]);
+            \Filament\Facades\Filament::registerWidgets([
+                \App\Filament\Widgets\StatsOverview::class,
+                \App\Filament\Widgets\TracksChart::class,
+                \App\Filament\Widgets\LatestTracks::class,
             ]);
     }
 }

@@ -42,45 +42,33 @@
     </style>
 </head>
 
-<body class="bg-[#222831] min-h-screen text-white relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-[#0F0F1E] to-[#1a1a2e] text-[#F5F5F5] min-h-screen">
+    <div class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="bg-[#2c2f3f]/80 backdrop-blur-md p-8 rounded-2xl border border-[#00ADB5]/20 shadow-lg">
+            <h1 class="text-3xl font-bold text-[#00ADB5] mb-6 flex items-center gap-3">
+                {{ $technique->title }}
+            </h1>
 
-    {{-- ✅ خلفية متحركة --}}
-    {{-- <div class="absolute inset-0 -z-10 animate-gradient-xy bg-gradient-to-br from-[#222831] via-[#00ADB5] to-[#393E46]"></div> --}}
-
-    {{-- ✅ محتوى النصيحة --}}
-    <main class="w-full max-w-3xl mx-auto px-6 py-12">
-        <div class="bg-white/5 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-[#00ADB5]/30 animate-fade-in-up">
-
-            <h1 class="text-4xl font-extrabold mb-6 text-white">{{ $technique->title }}</h1>
-
-            <div class="flex flex-wrap gap-4 mb-8">
-                <span class="px-4 py-1 rounded-full bg-[#00ADB5]/10 text-[#00ADB5] text-sm">
+            <div class="flex flex-wrap gap-4 mb-6">
+                <span class="bg-[#00ADB5]/10 text-[#00ADB5] px-4 py-1 rounded-lg text-sm">
                     🎯 {{ $technique->level }}
                 </span>
+            </div>
 
-                <div class="prose prose-invert prose-lg text-white/90 leading-loose animate-fade-in-up max-w-none">
-                    {!! nl2br(e($technique->content)) !!}
+            <div class="text-[#E0E0E0] prose prose-invert max-w-none leading-relaxed">
+                <div class="prose-lg prose-headings:text-[#00ADB5] prose-p:text-gray-300 prose-strong:text-white prose-em:text-[#00ADB5]/80 prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:marker:text-[#00ADB5] prose-a:text-[#00ADB5] hover:prose-a:text-[#00fff0] prose-code:text-[#00ADB5] prose-pre:bg-[#1a1a2e] prose-pre:border prose-pre:border-[#00ADB5]/20 max-w-none">
+                    {!! $technique->content !!}
                 </div>
-
-
             </div>
 
-            <div class="prose prose-invert prose-lg text-white/90 leading-loose animate-fade-in-up max-w-none">
-                {!! nl2br(e($technique->content)) !!}
-            </div>
-
-            <a href="{{ route('home') }}"
-               class="group mt-10 inline-flex items-center gap-2 text-[#00ADB5] hover:text-white transition-all duration-300">
-                <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
+            <a href="/"
+                class="mt-8 inline-block bg-[#00ADB5]/10 text-[#00ADB5] px-6 py-2 rounded-lg font-medium hover:bg-[#00ADB5]/20 hover:text-[#00fff0] transition-all duration-300">
                 العودة إلى كل النصائح
             </a>
         </div>
-    </main>
+    </div>
 
-    {{-- ✅ فوتر خفيف --}}
-    <footer class="text-center text-sm text-white/40 py-12">
+    <footer class="text-center text-[#E0E0E0]/40 py-8">
         © {{ date('Y') }} Codac.arabe — جميع الحقوق محفوظة.
     </footer>
 </body>

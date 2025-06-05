@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Tip;
 use App\Models\AdvancedTechnique;
+use App\Models\Track;
 
 Route::get('/', function () {
     DB::table('page_views')->insert([
@@ -18,12 +19,19 @@ Route::get('/', function () {
     ]);
 
     $tips = Tip::latest()->take(6)->get();
-    $allTips = Tip::latest()->get(); // جميع النصائح
+    $allTips = Tip::latest()->get();
     $advancedTechniques = AdvancedTechnique::latest()->take(6)->get();
     $allArticles = AdvancedTechnique::latest()->get();
+    $tracks = Track::all(); // ✅ إضافة هذا السطر
 
-    return view('public.home', compact('tips', 'advancedTechniques', 'allArticles', 'allTips'));
-})->name('home');
+    return view('public.home', compact('tips', 'advancedTechniques', 'allArticles', 'allTips', 'tracks'));
+});
+
+Route::get('/tracks/{id}', function ($id) {
+    $track = Track::findOrFail($id);
+    return view('public.track.index', compact('track'));
+})->name('track.show');
+
 
 Route::get('/tips', [TipController::class, 'index'])->name('tips.index');
 Route::get('/tips/{id}', [TipController::class, 'show'])->name('tips.show');

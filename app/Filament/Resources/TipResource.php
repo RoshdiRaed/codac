@@ -27,10 +27,10 @@ class TipResource extends Resource
                 ->label('عنوان النصيحة')
                 ->required(),
 
-            Forms\Components\Textarea::make('content')
+            Forms\Components\RichEditor::make('content')
                 ->label('محتوى النصيحة')
                 ->required()
-                ->rows(5),
+                ->columnSpanFull(),
 
             Forms\Components\Select::make('category')
                 ->label('التصنيف')
@@ -62,7 +62,7 @@ class TipResource extends Resource
                 TextColumn::make('created_at')->label('تاريخ الإضافة')->date(),
             ])
             ->filters([
-                
+
             ]);
     }
 
