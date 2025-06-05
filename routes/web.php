@@ -17,10 +17,12 @@ Route::get('/', function () {
         'updated_at' => now(),
     ]);
 
-    $tips = Tip::latest()->take(5)->get();
-    $advancedTechniques = AdvancedTechnique::latest()->take(5)->get();
+    $tips = Tip::latest()->take(6)->get();
+    $allTips = Tip::latest()->get(); // جميع النصائح
+    $advancedTechniques = AdvancedTechnique::latest()->take(6)->get();
+    $allArticles = AdvancedTechnique::latest()->get();
 
-    return view('public.home', compact('tips', 'advancedTechniques'));
+    return view('public.home', compact('tips', 'advancedTechniques', 'allArticles', 'allTips'));
 })->name('home');
 
 Route::get('/tips', [TipController::class, 'index'])->name('tips.index');
