@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
+    <meta name="viewport">
     <meta charset="UTF-8">
     <title>Codac | انطلق في رحلتك البرمجية</title>
     <link rel="shortcut icon" href="{{ asset('image/logo.png') }}" type="image/x-icon">
@@ -151,18 +152,18 @@
         </div>
     </section>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Advanced Techniques Section -->
     <section class="relative py-20 px-6 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
@@ -241,18 +242,18 @@
         </div>
     </div>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Developer Tools Section -->
     <section class="py-20 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -301,18 +302,18 @@
         </div>
     </section>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Open Source Projects Section -->
     <section class="relative py-20 px-6 overflow-hidden" data-aos="fade-right" data-aos-duration="1000">
@@ -355,18 +356,18 @@
         </div>
     </section>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Coding Challenges Section -->
     <section class="py-16 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -379,18 +380,18 @@
         </div>
     </section>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Developer Communities Section -->
     <section class="py-16 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -406,18 +407,18 @@
         </div>
     </section>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Workshop Section -->
     <section class="py-16 px-6 text-center" data-aos="fade-up" data-aos-duration="800">
@@ -428,18 +429,18 @@
             data-aos="zoom-in" data-aos-duration="600">قريبا ⏰</a>
     </section>
 
-        <!-- HR -->
-        <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center justify-center">
-                <div class="w-full max-w-4xl flex items-center gap-4">
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
-                    </div>
-                    <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
-                    <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
-                    </div>
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Developer Testimonials Section -->
     <section class="relative py-20 px-6 overflow-hidden" data-aos="fade-up" data-aos-duration="1000"
@@ -542,82 +543,7 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-
-        // Tips Modal
-        const openTipsModalBtn = document.getElementById('openTipsModalBtn');
-        const closeTipsModalBtn = document.getElementById('closeTipsModalBtn');
-        const tipsModal = document.getElementById('tipsModal');
-        const tipsModalContent = document.getElementById('tipsModalContent');
-
-        openTipsModalBtn.addEventListener('click', () => {
-            tipsModal.classList.remove('hidden');
-            tipsModalContent.focus();
-            setTimeout(() => {
-                tipsModalContent.classList.remove('scale-90', 'opacity-0');
-            }, 50);
-        });
-
-        closeTipsModalBtn.addEventListener('click', () => {
-            tipsModalContent.classList.add('scale-90', 'opacity-0');
-            setTimeout(() => {
-                tipsModal.classList.add('hidden');
-                openTipsModalBtn.focus();
-            }, 300);
-        });
-
-        tipsModal.addEventListener('click', (e) => {
-            if (e.target === tipsModal) {
-                closeTipsModalBtn.click();
-            }
-        });
-
-        tipsModal.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeTipsModalBtn.click();
-            }
-        });
-
-        // Articles Modal
-        const openBtn = document.getElementById('openModalBtn');
-        const closeBtn = document.getElementById('closeModalBtn');
-        const modal = document.getElementById('articlesModal');
-        const modalContent = document.getElementById('modalContent');
-
-        openBtn.addEventListener('click', () => {
-            modal.classList.remove('hidden');
-            modalContent.focus();
-            setTimeout(() => {
-                modalContent.classList.remove('scale-90', 'opacity-0');
-            }, 50);
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modalContent.classList.add('scale-90', 'opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                openBtn.focus();
-            }, 300);
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeBtn.click();
-            }
-        });
-
-        modal.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeBtn.click();
-            }
-        });
-    </script>
+    <script src="{{ asset('js/filament/filament/app.js') }}"></script>
 </body>
 
 </html>
