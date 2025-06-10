@@ -22,7 +22,7 @@ Route::get('/', function () {
     $allTips = Tip::latest()->get();
     $advancedTechniques = AdvancedTechnique::latest()->take(6)->get();
     $allArticles = AdvancedTechnique::latest()->get();
-    $tracks = Track::all(); // ✅ إضافة هذا السطر
+    $tracks = Track::all();
 
     return view('public.home', compact('tips', 'advancedTechniques', 'allArticles', 'allTips', 'tracks'));
 });

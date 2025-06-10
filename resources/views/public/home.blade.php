@@ -61,26 +61,83 @@
         </div>
     </section>
 
+
+    <!-- Introduction Section -->
+    <section class="bg-[#222831] text-white py-24 px-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-6 text-[#E0E0E0]">
+                من <span class="text-[#00ADB5]">إنستقرام</span> إلى منصة تعليمية متكاملة 🎓
+            </h2>
+            <p class="text-lg text-[#E0E0E0]/80 leading-relaxed mb-10">
+                بدأت رحلتنا على إنستقرام عبر مشاركة نصائح ودروس برمجية يومية على
+                <a href="https://www.instagram.com/codac.arabe/" target="_blank"
+                    class="underline text-[#00ADB5] hover:text-white font-semibold">@codac.arabe</a>
+                وحين رأينا التأثير الكبير وتفاعل المتابعين، قررنا إنشاء هذه المنصة لتكون مرجعًا متكاملاً ومنظمًا لكل
+                شغوف بالبرمجة.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <div class="bg-[#00ADB5]/10 border border-[#00ADB5]/30 p-6 rounded-2xl shadow-md w-full md:w-1/3">
+                    <h3 class="text-xl font-bold text-[#00ADB5] mb-2">📌 نصائح مختصرة وفعالة</h3>
+                    <p class="text-sm text-[#E0E0E0]/70">محتوى سريع وسهل الفهم يبقيك دائمًا متقدّمًا.</p>
+                </div>
+                <div class="bg-[#00ADB5]/10 border border-[#00ADB5]/30 p-6 rounded-2xl shadow-md w-full md:w-1/3">
+                    <h3 class="text-xl font-bold text-[#00ADB5] mb-2">📚 مسارات تعليمية</h3>
+                    <p class="text-sm text-[#E0E0E0]/70">خُطط واضحة تبدأ بك من الصفر وتوصلك للاحتراف.</p>
+                </div>
+                <div class="bg-[#00ADB5]/10 border border-[#00ADB5]/30 p-6 rounded-2xl shadow-md w-full md:w-1/3">
+                    <h3 class="text-xl font-bold text-[#00ADB5] mb-2">🌍 مجتمع عربي</h3>
+                    <p class="text-sm text-[#E0E0E0]/70">تواصل معنا وتعلّم معنا من خلال إنستقرام والمنصة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- HR -->
+    <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-4xl flex items-center gap-4">
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-50">
+                </div>
+                <div class="w-3 h-3 rounded-full bg-[#00ADB5] animate-pulse"></div>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-[#00ADB5] via-[#00ADB5] to-transparent opacity-50">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Tips Section -->
     <section class="py-20 px-6" data-aos="fade-up" data-aos-duration="800">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-extrabold text-[#E0E0E0] mb-12 text-center">🧠 أحدث النصائح</h2>
+
             <div class="grid md:grid-cols-3 gap-10">
                 @foreach ($tips as $tip)
-                    <div class="group bg-[#2C2C3A]/60 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-[#00ADB5]/20 transition-all duration-300"
+                    <div class="group bg-gradient-to-br from-[#2C2C3A]/70 to-[#1F1F2E]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                         data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}" data-aos-duration="600">
                         <div
-                            class="w-16 h-16 mb-4 bg-[#00ADB5]/10 rounded-full flex items-center justify-center text-2xl text-[#00ADB5]">
-                            <i class="devicon-github-original"></i>
+                            class="w-14 h-14 mb-4 bg-[#00ADB5]/10 text-[#00ADB5] rounded-full flex items-center justify-center text-2xl shadow-inner">
+                            @php
+                                $icons = ['🧠', '💡', '⚡', '🎯', '🚀', '💻', '⭐', '📚', '🔥', '💪'];
+                                $randomIcon = $icons[array_rand($icons)];
+                            @endphp
+                            {{ $tip->icon ?? $randomIcon }}
                         </div>
-                        <h3 class="text-xl font-bold mb-3 text-[#E0E0E0] group-hover:text-[#00ADB5] transition-colors">
+
+                        <h3
+                            class="text-xl font-bold text-[#E0E0E0] mb-3 group-hover:text-[#00ADB5] transition-colors duration-300">
                             <a href="{{ route('tips.show', $tip->id) }}">{{ $tip->title }}</a>
                         </h3>
-                        <p class="text-[#E0E0E0]/70 mb-4 leading-relaxed">{{ Str::limit($tip->content, 100) }}</p>
+
+                        <p class="text-[#E0E0E0]/70 text-sm mb-4 leading-relaxed line-clamp-3">
+                            {{ Str::limit(strip_tags($tip->content), 100) }}
+                        </p>
+
                         <a href="{{ route('tips.show', $tip->id) }}"
-                            class="inline-flex items-center text-[#00ADB5] hover:text-[#E0E0E0] font-medium transition-all duration-300 focus:ring-2 focus:ring-[#00ADB5]">
+                            class="inline-flex items-center gap-1 text-sm text-[#00ADB5] font-medium hover:text-[#E0E0E0] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
                             اقرأ المزيد
-                            <svg class="w-4 h-4 mr-2 rotate-180 transition-transform group-hover:translate-x-1"
+                            <svg class="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 5l7 7-7 7" />
@@ -89,13 +146,16 @@
                     </div>
                 @endforeach
             </div>
+
             <div class="mt-12 text-center">
                 <button id="openTipsModalBtn"
-                    class="px-8 py-3 text-lg bg-[#00ADB5] text-[#E0E0E0] font-semibold rounded-full shadow-xl hover:bg-[#E0E0E0] hover:text-[#00ADB5] border-2 border-[#00ADB5] transition-all duration-300 focus:ring-2 focus:ring-[#00ADB5]">عرض
-                    جميع النصائح</button>
+                    class="px-8 py-3 text-lg bg-[#00ADB5] text-[#E0E0E0] font-semibold rounded-full shadow-xl hover:bg-[#E0E0E0] hover:text-[#00ADB5] border-2 border-[#00ADB5] transition-all duration-300 focus:ring-2 focus:ring-[#00ADB5]">
+                    عرض جميع النصائح
+                </button>
             </div>
         </div>
     </section>
+
 
     <!-- Tips Modal -->
     <div id="tipsModal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center hidden" role="dialog"
@@ -173,8 +233,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- HR -->
     <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -561,7 +619,8 @@
                 </div>
             </div>
         </div>
-        <div class="border-t border-white/10 mt-12 pt-6 text-center text-xs text-[#E0E0E0]/50">© {{ date('Y') }}
+        <div class="border-t border-white/10 mt-12 pt-6 text-center text-xs text-[#E0E0E0]/50">&copy;
+            {{ date('Y') }}
             Codac.arabe - جميع الحقوق محفوظة.</div>
     </footer>
 
