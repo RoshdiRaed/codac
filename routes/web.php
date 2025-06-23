@@ -5,7 +5,8 @@ use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\TipController;
 use App\Http\Controllers\Public\AdvancedTechniqueController;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\NewsletterController;
 use App\Models\Tip;
 use App\Models\AdvancedTechnique;
 use App\Models\Track;
@@ -31,6 +32,11 @@ Route::get('/tracks/{id}', function ($id) {
     $track = Track::findOrFail($id);
     return view('public.track.index', compact('track'));
 })->name('track.show');
+
+
+Route::get('/communities', [CommunityController::class, 'index'])->name('communities.index');
+
+Route::post('/subscribe-newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe-newsletter');
 
 
 Route::get('/tips', [TipController::class, 'index'])->name('tips.index');

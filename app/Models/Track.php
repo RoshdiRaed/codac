@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+// use app\Models\Enrollment;
 
 class Track extends Model
 {
@@ -11,12 +12,30 @@ class Track extends Model
         'category',
         'icon',
         'description',
-        'content', // <-- أضف هذا
+        'content',
     ];
 
-    public function subTracks()
-{
-    return $this->hasMany(SubTrack::class);
-}
+    // علاقة الوحدات الفرعية
+    public function subTracks(): HasMany
+    {
+        return $this->hasMany(SubTrack::class);
+    }
 
+    // علاقة التسجيلات
+    public function enrollments(): HasMany
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
+    // علاقة التسجيلات المكتملة
+    public function completedEnrollments(): HasMany
+    {
+        return $this->hasMany(Enrollment::class)->where('status', 'completed');
+    }
+
+    // علاقة التقييمات
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
 }

@@ -2,55 +2,53 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Filament\Support\Colors\Color;
+use App\Models\OpenSourceProject;
+use App\Models\Tip;
 use App\Models\Track;
-use App\Models\SubTrack;
 
-class StatsOverview extends BaseWidget
+class StatsOverview extends StatsOverviewWidget
 {
-    public function getStats(): array
-    {
-        return [
-            Stat::make('عدد المسارات', Track::count())
-            ->description('إجمالي المسارات المتاحة')
-            ->icon('heroicon-m-rectangle-stack')
-            ->color('primary')
-            ->chart([7, 3, 4, 5, 6, 3, 5])
-            ->extraAttributes([
-                'class' => 'ring-2 ring-primary-500/50',
-            ])
-            ->descriptionIcon('heroicon-m-arrow-trending-up'),
+    protected function getStats(): array
+{
+    return [
+        Stat::make('📁 عدد المشاريع', OpenSourceProject::count())
+        ->icon('heroicon-o-code-bracket')
+        ->color(Color::Blue)
+        ->description('المشاريع المفتوحة المصدر')
+        ->descriptionIcon('heroicon-o-arrow-trending-up')
+        ->chart([7, 4, 6, 8, 10])
+        ->extraAttributes([
+            'title' => 'إجمالي المشاريع العامة التي يمكن المساهمة بها',
+            'class' => 'cursor-pointer transition hover:scale-[1.02]',
+            'wire:click' => '$dispatch("open-projects")',
+        ]),
 
-            Stat::make('عدد الوحدات الفرعية', SubTrack::count())
-            ->description('تفصيلات المسارات')
-            ->icon('heroicon-m-squares-2x2')
-            ->color('success')
-            ->chart([3, 5, 7, 8, 6, 9, 8])
+        Stat::make('💡 عدد النصائح', Tip::count())
+            ->icon('heroicon-o-light-bulb')
+            ->color(Color::Green)
+            ->description('نصائح وتقنيات للمطورين')
+            ->descriptionIcon('heroicon-o-sparkles')
+            ->chart([3, 5, 7, 8, 12])
             ->extraAttributes([
-                'class' => 'ring-2 ring-success-500/50',
-            ])
-            ->descriptionIcon('heroicon-m-arrow-trending-up'),
-
-            Stat::make('نسبة الإكتمال', '85%')
-            ->description('معدل إكتمال المحتوى')
-            ->icon('heroicon-m-check-circle')
-            ->color('warning')
-            ->chart([4, 5, 6, 7, 8, 8, 8.5])
-            ->extraAttributes([
-                'class' => 'ring-2 ring-warning-500/50',
+                'class' => 'cursor-pointer transition hover:scale-[1.02]',
+                'wire:click' => '$dispatch("open-tips")',
             ]),
+            // ->tooltip('النصائح التقنية المنشورة على الموقع'),
 
-            Stat::make('المستخدمين النشطين', '120')
-            ->description('في آخر 7 أيام')
-            ->icon('heroicon-m-users')
-            ->color('info')
-            ->chart([12, 15, 18, 14, 11, 16, 20])
+        Stat::make('🗺️ عدد المسارات', Track::count())
+            ->icon('heroicon-o-map')
+            ->color(Color::Teal)
+            ->description('مسارات تعلم منظمة')
+            ->descriptionIcon('heroicon-o-academic-cap')
+            ->chart([2, 4, 6, 8, 10])
             ->extraAttributes([
-                'class' => 'ring-2 ring-info-500/50',
-            ]),
-        ];
-
-    }
-
+                'class' => 'cursor-pointer transition hover:scale-[1.02]',
+                'wire:click' => '$dispatch("open-tracks")',
+            ])
+            // ->tooltip('عدد المسارات التعليمية المتاحة حالياً'),
+    ];
+}
 }

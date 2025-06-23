@@ -3,6 +3,8 @@
 namespace App\Filament\Pages;
 
 use Filament\Pages\Dashboard as BaseDashboard;
+use Filament\Notifications\Notification;
+use App\Models\Track;
 
 class Dashboard extends BaseDashboard
 {
@@ -24,4 +26,17 @@ class Dashboard extends BaseDashboard
     {
         return 3;
     }
+
+    public function mount(): void
+{
+    if (Track::count() > 100) {
+        Notification::make()
+            ->title('🚀 تهانينا!')
+            ->body('لقد تجاوزت 100 مسار مضاف في الموقع!')
+            ->success()
+            ->send();
+    }
+}
+
+
 }

@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/filament/filament/app.css') }}">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
@@ -31,7 +37,7 @@
         class="fixed top-6 right-6 z-50 bg-gray-900 text-[#E0E0E0] p-3 rounded-full shadow-lg hover:bg-gray-700 focus:ring-2 focus:ring-[#00ADB5] transition duration-300">🔑</a>
 
     <!-- Hero Section -->
-    <section
+    <section id="start"
         class="animate-gradient text-center py-32 relative overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl"
         data-aos="fade-down" data-aos-duration="800">
         <div class="floating-icons pointer-events-none z-0">
@@ -201,9 +207,10 @@
         </div>
     </div>
 
-    <section x-data="{ filter: 'all' }" class="py-20 px-6 bg-[#222831]">
+    <section id="tracks" x-data="{ filter: 'all' }" class="py-20 px-6 bg-[#222831]">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-[#E0E0E0] mb-6">🚀 ابدأ رحلتك مع البرمجة</h2>
+            <h2 class="text-4xl font-extrabold text-[#E0E0E0] mb-6" data-aos="fade-up" data-aos-duration="800">🚀
+                ابدأ رحلتك مع البرمجة</h2>
             <p class="text-[#E0E0E0]/80 text-lg mb-10">اختر المجال المناسب لك لتبدأ الطريق.</p>
 
             <!-- أزرار الفلترة -->
@@ -219,7 +226,8 @@
             </div>
 
             <!-- بطاقات المسارات -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" x-init="tracks = {{ Js::from($tracks) }}">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" x-init="tracks = {{ Js::from($tracks) }}"
+                data-aos="fade-down" data-aos-duration="800"">
                 <template x-for="track in tracks.filter(t => filter === 'all' || t.category === filter)"
                     :key="track.id">
                     <div
@@ -338,7 +346,12 @@
     </div>
 
     <!-- Developer Tools Section -->
-    <section class="py-20 px-6" data-aos="fade-up" data-aos-duration="800">
+    @php
+        use App\Models\DevTool;
+        $tools = DevTool::orderBy('order')->get();
+    @endphp
+
+    <section id="tools" class="py-20 px-6" data-aos="fade-up" data-aos-duration="800">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-extrabold text-[#E0E0E0] mb-6">🛠️ أدوات احترافية للمطورين</h2>
@@ -346,40 +359,22 @@
                     التطوير أسهل وأكثر احترافية</p>
             </div>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="group bg-[#2C2C3A]/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-[#00ADB5] hover:shadow-2xl hover:shadow-[#00ADB5]/10 transition-all duration-300"
-                    data-aos="zoom-in" data-aos-delay="0">
-                    <div class="relative w-full h-36 overflow-hidden rounded-xl mb-4">
-                        <img src="{{ asset('image/Ray.so.png') }}" alt="Ray.so"
-                            class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1" />
-                    </div>
-                    <h3 class="text-xl font-bold text-[#E0E0E0] mb-2 group-hover:text-[#00ADB5] transition-colors">
-                        Ray.so</h3>
-                    <p class="text-[#E0E0E0]/70 leading-relaxed">أداة مميزة لتحويل الكود البرمجي إلى صور جذابة قابلة
-                        للمشاركة، مع دعم كامل للغة العربية.</p>
-                </div>
-                <div class="group bg-[#2C2C3A]/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-[#00ADB5] hover:shadow-2xl hover:shadow-[#00ADB5]/10 transition-all duration-300"
-                    data-aos="zoom-in" data-aos-delay="100">
-                    <div class="relative w-full h-36 overflow-hidden rounded-xl mb-4">
-                        <img src="https://seeklogo.com/images/P/postman-logo-0087CA0D15-seeklogo.com.png"
-                            alt="Postman"
-                            class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1" />
-                    </div>
-                    <h3 class="text-xl font-bold text-[#E0E0E0] mb-2 group-hover:text-[#00ADB5] transition-colors">
-                        Postman</h3>
-                    <p class="text-[#E0E0E0]/70 leading-relaxed">منصة متكاملة لاختبار وتوثيق واجهات API بكفاءة عالية،
-                        مع ميزات تعاون الفريق.</p>
-                </div>
-                <div class="group bg-[#2C2C3A]/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-[#00ADB5] hover:shadow-2xl hover:shadow-[#00ADB5]/10 transition-all duration-300"
-                    data-aos="zoom-in" data-aos-delay="200">
-                    <div class="relative w-full h-36 overflow-hidden rounded-xl mb-4">
-                        <img src="https://vitest.dev/logo-shadow.svg" alt="Vitest"
-                            class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1" />
-                    </div>
-                    <h3 class="text-xl font-bold text-[#E0E0E0] mb-2 group-hover:text-[#00ADB5] transition-colors">
-                        Vitest</h3>
-                    <p class="text-[#E0E0E0]/70 leading-relaxed">إطار اختبار حديث وسريع لمشاريع Vite، يوفر تجربة مطور
-                        استثنائية مع دعم TypeScript.</p>
-                </div>
+                @foreach ($tools as $index => $tool)
+                    <a href="{{ $tool->link }}" target="_blank" rel="noopener noreferrer">
+                        <div class="group bg-[#2C2C3A]/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-[#00ADB5] hover:shadow-2xl hover:shadow-[#00ADB5]/10 transition-all duration-300"
+                            data-aos="zoom-in" data-aos-delay="{{ $index * 100 }}">
+                            <div class="relative w-full h-36 overflow-hidden rounded-xl mb-4">
+                                <img src="{{ $tool->image }}" alt="{{ $tool->title }}"
+                                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1" />
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-[#E0E0E0] mb-2 group-hover:text-[#00ADB5] transition-colors">
+                                {{ $tool->title }}
+                            </h3>
+                            <p class="text-[#E0E0E0]/70 leading-relaxed">{{ $tool->description }}</p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>
@@ -398,45 +393,58 @@
     </div>
 
     <!-- Open Source Projects Section -->
-    <section class="relative py-20 px-6 overflow-hidden" data-aos="fade-right" data-aos-duration="1000">
-        <div
-            class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23FFFFFF\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M50 50c0-5.52-4.48-10-10-10s-10 4.48-10 10 4.48 10 10 10 10-4.48 10-10zm-30-30c0-5.52-4.48-10-10-10S0 14.48 0 20s4.48 10 10 10 10-4.48 10-10zm60 0c0-5.52-4.48-10-10-10s-10 4.48-10 10 4.48 10 10 10 10-4.48 10-10z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]">
-        </div>
-        <div class="relative max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-[#E0E0E0] mb-8 tracking-tight">🚧 مشاريع مفتوحة المصدر
-            </h2>
-            <p class="text-[#E0E0E0]/80 mb-12 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">شارك أو استلهم من
-                هذه المشاريع المجتمعية المبتكرة التي تدعم المطورين العرب.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="relative group bg-[#2C2C3A]/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/10"
-                    data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-[#00ADB5]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="relative">
-                        <h3
-                            class="text-2xl font-bold text-[#E0E0E0] mb-3 group-hover:text-[#00ADB5] transition-colors duration-300">
-                            🔗 DevLinks</h3>
-                        <p class="text-[#E0E0E0]/70 leading-relaxed">مشروع لعرض روابط حساباتك البرمجية في صفحة واحدة
-                            أنيقة وسهلة التخصيص.</p>
-                    </div>
-                </div>
-                <div class="relative group bg-[#2C2C3A]/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/10"
-                    data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-[#00ADB5]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="relative">
-                        <h3
-                            class="text-2xl font-bold text-[#E0E0E0] mb-3 group-hover:text-[#00ADB5] transition-colors duration-300">
-                            📚 RoadMap Codac</h3>
-                        <p class="text-[#E0E0E0]/70 leading-relaxed">خريطة تعلم تفاعلية مصممة خصيصًا للمطورين العرب
-                            لتسريع رحلة التعلم.</p>
-                    </div>
-                </div>
+    @php
+        $projects = \App\Models\OpenSourceProject::latest()->take(6)->get();
+    @endphp
+
+    <section class="py-20 px-6 data-aos="fade-up" data-aos-duration="800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-[#E0E0E0]">
+                    <span class="text-[#00ADB5]">🚧</span> مشاريع مفتوحة المصدر
+                </h2>
+                <p class="text-lg text-[#E0E0E0]/80">شارك أو استلهم من مشاريع مجتمعية تدعم المطورين العرب</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach ($projects as $project)
+                    <a href="{{ $project->demo_url ?? $project->github_url }}" target="_blank"
+                        class="block bg-[#343A46] rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#3C424F] group">
+                        @if ($project->image)
+                            <img src="{{ Storage::url($project->image) }}" alt="{{ $project->title }}"
+                                class="w-full h-48 object-cover rounded-lg mb-4">
+                        @endif
+
+                        <h3 class="text-xl font-bold text-[#E0E0E0] mb-2 group-hover:text-[#00ADB5] transition-colors">
+                            {{ $project->title }}</h3>
+                        <p class="text-[#E0E0E0]/70 text-sm mb-4 line-clamp-3">{{ $project->description }}</p>
+
+                        @if ($project->stars_count)
+                            <div class="flex items-center gap-2 text-[#00ADB5]">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span>{{ $project->stars_count }}</span>
+                            </div>
+                        @endif
+                    </a>
+                @endforeach
+            </div>
+
+            <!-- View More Link -->
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-block px-8 py-3 bg-[#00ADB5] text-white rounded-lg hover:bg-[#00ADB5]/80 transition-colors">
+                    عرض المزيد من المشاريع
+                </a>
             </div>
         </div>
     </section>
+    </section>
+
 
     <!-- HR -->
     <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -452,15 +460,7 @@
     </div>
 
     <!-- Coding Challenges Section -->
-    <section class="py-16 px-6" data-aos="fade-up" data-aos-duration="800">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-[#00ADB5] mb-6">🎯 تحديات برمجية</h2>
-            <p class="text-[#E0E0E0]/80 mb-10">اختبر مهاراتك بحل تحديات متنوعة أسبوعياً.</p>
-            <a href="#"
-                class="inline-block px-8 py-3 bg-[#00ADB5] text-[#E0E0E0] rounded-full hover:bg-[#00ADB5]/80 transition focus:ring-2 focus:ring-[#00ADB5]"
-                data-aos="zoom-in" data-aos-duration="600">قريبا</a>
-        </div>
-    </section>
+    @include('challenges')
 
     <!-- HR -->
     <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -475,19 +475,7 @@
         </div>
     </div>
 
-    <!-- Developer Communities Section -->
-    <section class="py-16 px-6" data-aos="fade-up" data-aos-duration="800">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-[#00ADB5] mb-6">🤝 مجتمعات عربية</h2>
-            <p class="text-[#E0E0E0]/80 mb-8">انضم لمجتمعات تدعم المطورين العرب وتشارك الخبرات.</p>
-            <ul class="grid md:grid-cols-2 gap-6 text-right">
-                <li class="bg-[#2C2C3A] p-5 rounded-lg" data-aos="fade-up" data-aos-delay="0"
-                    data-aos-duration="600">💬 <strong>Coders Cafe</strong> – دردشات أسبوعية ومساعدة جماعية.</li>
-                <li class="bg-[#2C2C3A] p-5 rounded-lg" data-aos="fade-up" data-aos-delay="100"
-                    data-aos-duration="600">📢 <strong>Telegram Devs</strong> – قناة لمشاركة التحديثات والمصادر.</li>
-            </ul>
-        </div>
-    </section>
+    @include('community');
 
     <!-- HR -->
     <div class="relative py-12 px-6" data-aos="fade-up" data-aos-duration="800">
@@ -547,9 +535,10 @@
                         <div class="w-3 h-3 bg-[#4ECDC4] rounded-full absolute bottom-6 right-6 animate-float"
                             style="animation-delay: 0.5s;"></div>
                     </div>
-                    <p class="relative text-[#E0E0E0] text-lg mb-4 font-medium leading-relaxed z-10">"مصدر عربي رائع،
+                    <p class="relative text-[#E0E0E0] text-lg mb-4 font-medium leading-relaxed z-10">" مصدر عربي رائع،
                         كأنني أتنقل في مجرة من المعرفة البرمجية!"</p>
-                    <footer class="relative text-[#E0E0E0]/60 font-semibold z-10">— أحمد، مهندس Laravel المستقبلي
+                    <footer class="relative text-[#E0E0E0]/60 font-semibold z-10">— أحمد،
+                        مهندس Laravel المستقبلي
                     </footer>
                 </blockquote>
                 <blockquote
@@ -559,13 +548,16 @@
                         class="absolute inset-0 border-2 border-[#00ADB5]/50 rounded-2xl group-hover:animate-holo-border">
                     </div>
                     <div class="absolute inset-0 pointer-events-none">
-                        <div class="w-2 h-2 bg-[#00ADB5] rounded-full absolute top-6 left-6 animate-float"></div>
+                        <div class="w-2 h-2 bg-[#00ADB5] rounded-full absolute top-6 left-6 animate-float">
+                        </div>
                         <div class="w-3 h-3 bg-[#4ECDC4] rounded-full absolute bottom-4 right-4 animate-float"
                             style="animation-delay: 0.7s;"></div>
                     </div>
-                    <p class="relative text-[#E0E0E0] text-lg mb-4 font-medium leading-relaxed z-10">"Codac.arabe بوابة
+                    <p class="relative text-[#E0E0E0] text-lg mb-4 font-medium leading-relaxed z-10">
+                        "Codac.arabe بوابة
                         إلى عالم البرمجة، تنقلك من مبتدئ إلى ساحر تقني!"</p>
-                    <footer class="relative text-[#E0E0E0]/60 font-semibold z-10">— سارة، ساحرة React</footer>
+                    <footer class="relative text-[#E0E0E0]/60 font-semibold z-10">—
+                        سارة، ساحرة React</footer>
                 </blockquote>
             </div>
         </div>
@@ -594,31 +586,36 @@
             <div>
                 <h4 class="text-[#E0E0E0] font-bold mb-4">روابط سريعة</h4>
                 <ul class="space-y-2">
-                    <li><a href="#"
+                    <li><a href="#start"
                             class="hover:text-[#00ADB5] transition focus:ring-2 focus:ring-[#00ADB5]">ابدأ هنا</a></li>
-                    <li><a href="#"
+                    <li><a href="#tracks"
                             class="hover:text-[#00ADB5] transition focus:ring-2 focus:ring-[#00ADB5]">مسارات التعلم</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="#tools"
                             class="hover:text-[#00ADB5] transition focus:ring-2 focus:ring-[#00ADB5]">أدوات
                             المطورين</a></li>
-                    <li><a href="#"
+                    <li><a href="#challenges"
                             class="hover:text-[#00ADB5] transition focus:ring-2 focus:ring-[#00ADB5]">تحديات
                             أسبوعية</a></li>
                 </ul>
             </div>
+
             <div class="md:col-span-2">
                 <h4 class="text-[#E0E0E0] font-bold mb-4">📩 اشترك في النشرة</h4>
                 <p class="mb-4">تصلك أفضل النصائح والمصادر البرمجية أسبوعيًا.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="email" name="email" placeholder="ادخل بريدك الإلكتروني" required
-                        class="w-full p-3 rounded-lg bg-[#222831] text-[#E0E0E0] placeholder-[#E0E0E0]/50 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
-                    <button type="submit"
-                        class="bg-[#00ADB5] text-[#E0E0E0] px-6 py-3 rounded-lg hover:bg-[#00ADB5]/80 transition focus:ring-2 focus:ring-[#00ADB5]"
+                <form action="{{ route('subscribe-newsletter') }}" method="POST" class="space-y-4">
+                    @csrf
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" name="email" placeholder="ادخل بريدك الإلكتروني" required 
+                            class="w-full p-3 rounded-lg bg-[#222831] text-[#E0E0E0] placeholder-[#E0E0E0]/50 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
+                        <button type="submit"
+                            class="bg-[#00ADB5] text-[#E0E0E0] px-6 py-3 rounded-lg hover:bg-[#00ADB5]/80 transition focus:ring-2 focus:ring-[#00ADB5]"
                         data-aos="zoom-in" data-aos-duration="600">اشترك</button>
                 </div>
             </div>
+
         </div>
+
         <div class="border-t border-white/10 mt-12 pt-6 text-center text-xs text-[#E0E0E0]/50">&copy;
             {{ date('Y') }}
             Codac.arabe - جميع الحقوق محفوظة.</div>
