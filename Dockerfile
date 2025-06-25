@@ -26,4 +26,4 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage
 
 # إعداد ملف Apache
-COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
