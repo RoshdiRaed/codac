@@ -19,7 +19,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage
 
 # تثبيت التبعيات
-RUN composer install --no-dev --optimize-autoloader || (echo "🔴 Composer failed!" && ls -la /root/.composer && cat /root/.composer/composer.log || true && exit 1)
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader --no-scripts --no-progress --verbose
 
 # ملف إعداد apache
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
