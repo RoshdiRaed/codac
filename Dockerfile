@@ -8,15 +8,18 @@ RUN a2enmod rewrite
 
 WORKDIR /var/www/html
 
-COPY composer.json composer.lock ./
-
-COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
-
-RUN composer install --no-dev --optimize-autoloader || { cat /root/.composer/composer.log; exit 1; }
-
+# نسخ المشروع بالكامل أولاً (هام جداً)
 COPY . .
 
+# نسخ composer
+COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
+
+# إعداد صلاحيات
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage
 
+# تثبيت التبعيات
+RUN composer install --no-dev --optimize-autoloader || { cat /root/.composer/composer.log || true; exit 1; }
+
+# ملف إعداد apache
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
