@@ -67,7 +67,6 @@
         </div>
     </section>
 
-
     <!-- Introduction Section -->
     <section class="bg-[#222831] text-white py-24 px-6" data-aos="fade-up" data-aos-delay="200">
         <div class="max-w-5xl mx-auto text-center">
@@ -413,7 +412,7 @@
                     <a href="{{ $project->demo_url ?? $project->github_url }}" target="_blank"
                         class="block bg-[#343A46] rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#3C424F] group">
                         @if ($project->image)
-                            <img src="{{ Storage::url($project->image) }}" alt="{{ $project->title }}"
+                            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}"
                                 class="w-full h-48 object-cover rounded-lg mb-4">
                         @endif
 
@@ -606,7 +605,7 @@
                 <form action="{{ route('subscribe-newsletter') }}" method="POST" class="space-y-4">
                     @csrf
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="email" name="email" placeholder="ادخل بريدك الإلكتروني" required 
+                        <input type="email" name="email" placeholder="ادخل بريدك الإلكتروني" required
                             class="w-full p-3 rounded-lg bg-[#222831] text-[#E0E0E0] placeholder-[#E0E0E0]/50 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
                         <button type="submit"
                             class="bg-[#00ADB5] text-[#E0E0E0] px-6 py-3 rounded-lg hover:bg-[#00ADB5]/80 transition focus:ring-2 focus:ring-[#00ADB5]"

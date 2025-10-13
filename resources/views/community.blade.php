@@ -22,7 +22,7 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-[#00ADB5]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                     <div class="relative z-10">
                         @if ($community->image)
-                        <img src="{{ asset('storage/uploads/' . $community->image) }}"
+                        <img src="{{ asset('storage/' . $community->image) }}"
                              alt="{{ $community->name }}"
                              class="w-16 h-16 object-cover rounded-full mx-auto mb-4 border border-[#00ADB5]/40 shadow-sm shadow-[#00ADB5]/10">
                         @else

@@ -11,9 +11,46 @@
     {{-- Almarai Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
+    {{-- Filament Styles for Rich Text Editor Formatting --}}
+    <link rel="stylesheet" href="{{ asset('css/filament/filament/app.css') }}">
+
+    {{-- Highlight.js for Code Syntax Highlighting --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
     <style>
         body {
             font-family: 'Almarai', sans-serif;
+        }
+
+        /* RTL Support for Content */
+        .content-rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Code Block Styling */
+        pre {
+            direction: ltr !important;
+            text-align: left !important;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        code {
+            direction: ltr !important;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Inline code */
+        p code, li code {
+            background: #222831;
+            color: #00ADB5;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9em;
         }
 
         @keyframes gradient-xy {
@@ -62,8 +99,8 @@
                 </span>
             </div>
 
-            <div class="prose prose-invert prose-lg text-white/90 leading-loose animate-fade-in-up max-w-none">
-                {!! nl2br(e($tip->content)) !!}
+            <div class="prose prose-invert prose-lg text-white/90 leading-loose animate-fade-in-up max-w-none content-rtl">
+                {!! $tip->content !!}
             </div>
 
             <a href="/"
@@ -80,5 +117,18 @@
     <footer class="text-center text-sm text-white/40 py-12">
         © {{ date('Y') }} Codac.arabe — جميع الحقوق محفوظة.
     </footer>
+
+    {{-- Filament Scripts --}}
+    <script src="{{ asset('js/filament/filament/app.js') }}"></script>
+
+    {{-- Initialize Highlight.js --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Highlight all code blocks
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
 </body>
 </html>

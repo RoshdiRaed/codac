@@ -18,3 +18,4 @@ class NewsletterController extends Controller
         return back()->with('success', 'تم الاشتراك بنجاح ✨');
     }
 }
+    

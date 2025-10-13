@@ -44,8 +44,8 @@
 
                         <div class="flex flex-col items-center text-center z-10 relative">
                             @if ($community->image)
-                                <img src="{{ asset('storage/uploads/' . $community->image) }}"
-                                     alt="{{ $community->name }}"
+                                <img src="{{ asset('storage/' . $community->image) }}"
+                                     alt="{{ $community->image }}"
                                      class="w-16 h-16 mb-4 rounded-full object-cover border border-[#00ADB5]/40 shadow-md shadow-[#00ADB5]/10">
                             @else
                                 <div class="w-16 h-16 mb-4 rounded-full bg-[#00ADB5]/30 flex items-center justify-center text-white text-2xl font-bold">

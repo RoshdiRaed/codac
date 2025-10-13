@@ -45,4 +45,3 @@ Route::get('/tips/{id}', [TipController::class, 'show'])->name('tips.show');
 Route::get('/advanced', [AdvancedTechniqueController::class, 'index'])->name('advanced.index');
 Route::get('/advanced/{id}', [AdvancedTechniqueController::class, 'show'])->name('advanced.show');
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
