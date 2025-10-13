@@ -17,7 +17,7 @@
     {{-- Highlight.js for Code Syntax Highlighting --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    
+
     {{-- دعم لغات برمجة إضافية --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
@@ -27,7 +27,7 @@
 
     <style>
         body {
-            font-family: 'Almarai', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
         }
 
         /* RTL Support for Content */
@@ -70,7 +70,7 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.875rem;
-            font-family: 'Almarai', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
             transition: all 0.3s ease;
             opacity: 0;
             z-index: 10;

@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
-<body class="bg-[#222831] text-[#E0E0E0] font-['Almarai']">
+<body class="bg-[#222831] text-[#E0E0E0] font-['IBM Plex Sans Arabic']">
     <!-- Logo Section -->
     <div class="absolute top-6 left-6 z-40 group hidden md:flex flex-col items-center">
         <img src="{{ asset('image/logo.png') }}" alt="Codac Logo"

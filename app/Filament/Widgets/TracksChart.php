@@ -199,7 +199,7 @@ class TracksChart extends ChartWidget
                 ],
                 'ticks' => [
                     'font' => [
-                        'family' => 'Cairo, sans-serif',
+                        'family' => 'IBM Plex Sans Arabic, sans-serif',
                         'size' => 12,
                         'weight' => '500',
                     ],
@@ -211,7 +211,7 @@ class TracksChart extends ChartWidget
                     'display' => true,
                     'text' => 'عدد الوحدات',
                     'font' => [
-                        'family' => 'Cairo, sans-serif',
+                        'family' => 'IBM Plex Sans Arabic, sans-serif',
                         'size' => 14,
                         'weight' => '600',
                     ],
@@ -224,7 +224,7 @@ class TracksChart extends ChartWidget
                 ],
                 'ticks' => [
                     'font' => [
-                        'family' => 'Cairo, sans-serif',
+                        'family' => 'IBM Plex Sans Arabic, sans-serif',
                         'size' => 11,
                         'weight' => '500',
                     ],
@@ -246,7 +246,7 @@ class TracksChart extends ChartWidget
                 'align' => 'center',
                 'labels' => [
                     'font' => [
-                        'family' => 'Cairo, sans-serif',
+                        'family' => 'IBM Plex Sans Arabic, sans-serif',
                         'size' => 13,
                         'weight' => '600',
                     ],
@@ -286,12 +286,12 @@ class TracksChart extends ChartWidget
                     }",
                 ],
                 'titleFont' => [
-                    'family' => 'Cairo, sans-serif',
+                    'family' => 'IBM Plex Sans Arabic, sans-serif',
                     'size' => 14,
                     'weight' => '600',
                 ],
                 'bodyFont' => [
-                    'family' => 'Cairo, sans-serif',
+                    'family' => 'IBM Plex Sans Arabic, sans-serif',
                     'size' => 12,
                     'weight' => '400',
                 ],
@@ -301,7 +301,7 @@ class TracksChart extends ChartWidget
                 'anchor' => 'end',
                 'align' => 'top',
                 'font' => [
-                    'family' => 'Cairo, sans-serif',
+                    'family' => 'IBM Plex Sans Arabic, sans-serif',
                     'size' => 11,
                     'weight' => '600',
                 ],

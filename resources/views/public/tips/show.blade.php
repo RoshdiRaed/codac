@@ -20,7 +20,7 @@
 
     <style>
         body {
-            font-family: 'Almarai', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
         }
 
         /* RTL Support for Content */

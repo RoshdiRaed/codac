@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Almarai', system-ui, -apple-system, sans-serif;
+            font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
         }
 
         .modal-enter {

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Almarai', 'sans-serif'],
+        sans: ['IBM Plex Sans Arabic', 'sans-serif'],
       },
     },
   },
