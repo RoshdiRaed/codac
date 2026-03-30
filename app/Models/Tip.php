@@ -11,6 +11,7 @@ class Tip extends Model
 
     protected $fillable = [
         'title',
+        'image',
         'content',
         'category',
         'level',
