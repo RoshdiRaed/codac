@@ -1,47 +1,36 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Public\HomeController;
-use App\Http\Controllers\Public\TipController;
-use App\Http\Controllers\Public\AdvancedTechniqueController;
-use Illuminate\Support\Facades\DB;
+
+// Public Routes
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\NewsletterController;
-use App\Models\Tip;
-use App\Models\AdvancedTechnique;
-use App\Models\Track;
 
-Route::get('/', function () {
-    DB::table('page_views')->insert([
-        'page' => 'home',
-        'ip_address' => request()->ip(),
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    $tips = Tip::latest()->take(6)->get();
-    $allTips = Tip::latest()->get();
-    $advancedTechniques = AdvancedTechnique::latest()->take(6)->get();
-    $allArticles = AdvancedTechnique::latest()->get();
-    $tracks = Track::all();
-
-    return view('public.home', compact('tips', 'advancedTechniques', 'allArticles', 'allTips', 'tracks'));
-});
-
-Route::get('/tracks/{id}', function ($id) {
-    $track = Track::findOrFail($id);
-    return view('public.track.index', compact('track'));
-})->name('track.show');
-
-
+// Communities
 Route::get('/communities', [CommunityController::class, 'index'])->name('communities.index');
 
+// Newsletter Subscription
 Route::post('/subscribe-newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe-newsletter');
 
+// Authenticated Routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/tips', [TipController::class, 'index'])->name('tips.index');
-Route::get('/tips/{id}', [TipController::class, 'show'])->name('tips.show');
+    // Profile Routes
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('/advanced', [AdvancedTechniqueController::class, 'index'])->name('advanced.index');
-Route::get('/advanced/{id}', [AdvancedTechniqueController::class, 'show'])->name('advanced.show');
+    // Add your protected routes here
+    // Example: Route::resource('posts', PostController::class);
+});
 
+// Authentication Routes (login, register, etc.)
+require __DIR__.'/auth.php';

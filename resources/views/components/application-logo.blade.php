@@ -1,0 +1,5 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
+    <!-- Simple logo with a circle and text -->
+    <circle cx="100" cy="100" r="90" fill="#00ADB5" />
+    <text x="50%" y="50%" font-family="Arial" font-size="30" fill="white" text-anchor="middle" dominant-baseline="middle">CODAC</text>
+</svg>

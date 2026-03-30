@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+@extends('layouts.app')
 
-<head>
-    <meta name="viewport">
-    <meta charset="UTF-8">
-    <title>Codac | انطلق في رحلتك البرمجية</title>
+@section('title', 'Codac | انطلق في رحلتك البرمجية')
+
+@push('styles')
     <link rel="shortcut icon" href="{{ asset('image/logo.png') }}" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/filament/filament/app.css') }}">
-    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        [x-cloak] { display: none !important; }
+        .rtl { direction: rtl; }
+        .ltr { direction: ltr; }
+    </style>
+@endpush
 
-    <!-- Swiper JS -->
+@push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+@endpush
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-</head>
-
-<body class="bg-[#222831] text-[#E0E0E0] font-['IBM Plex Sans Arabic']">
+@section('content')
+<div class="min-h-screen bg-[#222831] text-[#E0E0E0] font-['IBM Plex Sans Arabic']" x-data="{ isRTL: true }" :class="{ 'rtl': isRTL, 'ltr': !isRTL }">
     <!-- Logo Section -->
     <div class="absolute top-6 left-6 z-40 group hidden md:flex flex-col items-center">
         <img src="{{ asset('image/logo.png') }}" alt="Codac Logo"
@@ -33,7 +43,7 @@
         </div>
     </div>
 
-    <a href="http://localhost:8000/admin/login" target="_blank" aria-label="Admin Login"
+    <a href="{{ url('/admin/login') }}" target="_blank" aria-label="Admin Login"
         class="fixed top-6 right-6 z-50 bg-gray-900 text-[#E0E0E0] p-3 rounded-full shadow-lg hover:bg-gray-700 focus:ring-2 focus:ring-[#00ADB5] transition duration-300">🔑</a>
 
     <!-- Hero Section -->
@@ -127,19 +137,19 @@
                                 $icons = ['🧠', '💡', '⚡', '🎯', '🚀', '💻', '⭐', '📚', '🔥', '💪'];
                                 $randomIcon = $icons[array_rand($icons)];
                             @endphp
-                            {{ $tip->icon ?? $randomIcon }}
+                            {{ $tip['icon'] ?? $randomIcon }}
                         </div>
 
                         <h3
                             class="text-xl font-bold text-[#E0E0E0] mb-3 group-hover:text-[#00ADB5] transition-colors duration-300">
-                            <a href="{{ route('tips.show', $tip->id) }}">{{ $tip->title }}</a>
+                            <a href="#">{{ $tip['title'] }}</a>
                         </h3>
 
                         <p class="text-[#E0E0E0]/70 text-sm mb-4 leading-relaxed line-clamp-3">
-                            {{ Str::limit(strip_tags($tip->content), 100) }}
+                            {{ Str::limit($tip['content'], 100) }}
                         </p>
 
-                        <a href="{{ route('tips.show', $tip->id) }}"
+                        <a href="#"
                             class="inline-flex items-center gap-1 text-sm text-[#00ADB5] font-medium hover:text-[#E0E0E0] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
                             اقرأ المزيد
                             <svg class="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform"
@@ -173,11 +183,11 @@
                     aria-label="Close modal">✕</button>
                 <h2 id="tipsModalTitle" class="text-2xl font-bold text-[#00ADB5] mb-6">🧠 جميع النصائح</h2>
                 <div class="grid md:grid-cols-2 gap-6">
-                    @foreach ($allTips as $tip)
+                    @foreach ($tips as $tip)
                         <div class="bg-[#2C2C3A] p-4 rounded-xl shadow border border-white/10">
-                            <h3 class="text-[#E0E0E0] font-semibold text-lg mb-2">{{ $tip->title }}</h3>
-                            <p class="text-[#E0E0E0]/70 mb-3">{{ Str::limit($tip->content, 150) }}</p>
-                            <a href="{{ route('tips.show', $tip->id) }}"
+                            <h3 class="text-[#E0E0E0] font-semibold text-lg mb-2">{{ $tip['title'] }}</h3>
+                            <p class="text-[#E0E0E0]/70 mb-3">{{ Str::limit($tip['content'], 150) }}</p>
+                            <a href="#"
                                 class="text-[#00ADB5] hover:text-[#E0E0E0] transition inline-flex items-center focus:ring-2 focus:ring-[#00ADB5]">
                                 اقرأ المزيد
                                 <svg class="w-4 h-4 mr-2 rotate-180" fill="none" stroke="currentColor"
@@ -272,10 +282,10 @@
                         <div class="relative p-8">
                             <h3
                                 class="text-2xl font-bold text-[#E0E0E0] mb-4 group-hover:text-[#00ADB5] transition-colors duration-300">
-                                {{ $technique->title }}</h3>
+                                {{ $technique['title'] }}</h3>
                             <p class="text-[#E0E0E0]/70 mb-6 leading-relaxed line-clamp-3">
-                                {{ Str::limit($technique->content, 120) }}</p>
-                            <a href="{{ route('advanced.show', $technique->id) }}"
+                                {{ Str::limit($technique['content'], 120) }}</p>
+                            <a href="#"
                                 class="inline-flex items-center text-[#00ADB5] font-semibold group-hover:text-[#E0E0E0] transition-colors duration-300 focus:ring-2 focus:ring-[#00ADB5]">
                                 اقرأ المزيد
                                 <svg class="w-5 h-5 mr-2 rotate-180 transform group-hover:scale-110 transition-transform duration-300"
@@ -313,9 +323,9 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     @foreach ($allArticles as $technique)
                         <div class="bg-[#2C2C3A] p-4 rounded-xl shadow border border-white/10">
-                            <h3 class="text-[#E0E0E0] font-semibold text-lg mb-2">{{ $technique->title }}</h3>
-                            <p class="text-[#E0E0E0]/70 mb-3">{{ Str::limit($technique->content, 150) }}</p>
-                            <a href="{{ route('advanced.show', $technique->id) }}"
+                            <h3 class="text-[#E0E0E0] font-semibold text-lg mb-2">{{ $technique['title'] }}</h3>
+                            <p class="text-[#E0E0E0]/70 mb-3">{{ Str::limit($technique['content'], 150) }}</p>
+                            <a href="#"
                                 class="text-[#00ADB5] hover:text-[#E0E0E0] transition inline-flex items-center focus:ring-2 focus:ring-[#00ADB5]">
                                 اقرأ المزيد
                                 <svg class="w-4 h-4 mr-2 rotate-180" fill="none" stroke="currentColor"
@@ -345,10 +355,6 @@
     </div>
 
     <!-- Developer Tools Section -->
-    @php
-        use App\Models\DevTool;
-        $tools = DevTool::orderBy('order')->get();
-    @endphp
 
     <section id="tools" class="py-20 px-6" data-aos="fade-up" data-aos-duration="800">
         <div class="max-w-6xl mx-auto">
@@ -392,9 +398,6 @@
     </div>
 
     <!-- Open Source Projects Section -->
-    @php
-        $projects = \App\Models\OpenSourceProject::latest()->take(6)->get();
-    @endphp
 
     <section class="py-20 px-6 data-aos="fade-up" data-aos-duration="800">
         <div class="max-w-7xl mx-auto">
@@ -623,6 +626,5 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ asset('js/filament/filament/app.js') }}"></script>
-</body>
-
-</html>
+</div>
+@endsection
